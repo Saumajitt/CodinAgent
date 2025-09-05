@@ -23,29 +23,36 @@ git clone https://github.com/Saumajitt/CodinAgent.git
 cd CodinAgent
 ```
 
-### 2. Set Up Environment
-- Create a virtual environment (optional but recommended):
+
+### 2. Set Up Environment (with uv)
+- [Install uv](https://github.com/astral-sh/uv) if you don't have it:
   ```bash
-  python3 -m venv .venv
-  source .venv/bin/activate
+  curl -Ls https://astral.sh/uv/install.sh | sh
   ```
-- Install dependencies:
+- Install dependencies in a virtual environment (recommended):
   ```bash
-  pip install -r requirements.txt
+  uv venv .venv
+  source .venv/bin/activate
+  uv pip install -r requirements.txt
+  ```
+- Or, install dependencies directly (if you don't use a venv):
+  ```bash
+  uv pip install -r requirements.txt
   ```
 - Create a `.env` file in the project root and add your Gemini API key:
   ```env
   GEMINI_API_KEY=your_gemini_api_key_here
   ```
 
+
 ### 3. Usage
-Run the agent from the project root:
+Run the agent from the project root using uv:
 ```bash
-python main.py "List all files in the calculator directory"
+uv run main.py "List all files in the calculator directory"
 ```
 - For verbose output:
   ```bash
-  python main.py "Your prompt here" --verbose
+  uv run main.py "Your prompt here" --verbose
   ```
 
 ## Example Prompts
